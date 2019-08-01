@@ -22,6 +22,7 @@ const defaultBrowsers = {
   ],
 };
 
+/// [demo_start]
 function shouldSetBrowsers(isInteractive) {
   if (!isInteractive) {
     return Promise.resolve(true);
@@ -40,6 +41,7 @@ function shouldSetBrowsers(isInteractive) {
 
   return inquirer.prompt(question).then(answer => answer.shouldSetBrowsers);
 }
+/// [demo_end]
 
 function checkBrowsers(dir, isInteractive, retry = true) {
   const current = browserslist.findConfig(dir);
