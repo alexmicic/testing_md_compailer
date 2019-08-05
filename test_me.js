@@ -27,7 +27,7 @@ function shouldSetBrowsers(isInteractive) {
     return Promise.resolve(true);
   }
 
-  /// [demo_start]
+  /// [demo_start][0]
   const question = {
     type: 'confirm',
     name: 'shouldSetBrowsers',
@@ -38,7 +38,7 @@ function shouldSetBrowsers(isInteractive) {
       )}?`,
     default: true,
   };
-  /// [demo_end]
+  /// [demo_end][0]
 
   return inquirer.prompt(question).then(answer => answer.shouldSetBrowsers);
 }
@@ -49,6 +49,7 @@ function checkBrowsers(dir, isInteractive, retry = true) {
     return Promise.resolve(current);
   }
 
+  /// [demo_start][1]
   if (!retry) {
     return Promise.reject(
       new Error(
@@ -62,6 +63,7 @@ function checkBrowsers(dir, isInteractive, retry = true) {
       )
     );
   }
+  /// [demo_end][1]
 
   return shouldSetBrowsers(isInteractive).then(shouldSetBrowsers => {
     if (!shouldSetBrowsers) {
